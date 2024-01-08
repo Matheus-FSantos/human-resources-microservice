@@ -1,4 +1,4 @@
-package io.github.matheusfsantos.hrworker.model.entity;
+package io.github.matheusfsantos.hrworker.model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
