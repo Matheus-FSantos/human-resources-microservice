@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.matheusfsantos.hrworker.model.dtos.NewWorkerDTO;
 import io.github.matheusfsantos.hrworker.model.entities.Worker;
 import io.github.matheusfsantos.hrworker.model.services.impl.WorkerServiceImpl;
 
@@ -35,9 +37,15 @@ public class WorkerController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<Void> create (@RequestBody Worker dtoClass) {
-		this.service.create(dtoClass);
+	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO newWorker) {
+		this.service.create(newWorker);
 		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
+	
+	@PutMapping("/{userId}")
+	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="userId") UUID id) {
+		this.service.update(updatedWorker, id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
 	@DeleteMapping("/{userId}")

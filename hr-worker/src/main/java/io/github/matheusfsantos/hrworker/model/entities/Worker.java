@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.github.matheusfsantos.hrworker.model.dtos.NewWorkerDTO;
+
 @Entity
 @Table(name="tb_worker")
 public class Worker implements Serializable {
@@ -35,6 +37,21 @@ public class Worker implements Serializable {
 	private LocalDateTime updatedAt;
 	
 	public Worker() { }
+
+	public Worker(NewWorkerDTO newWorkerDTO) {
+		this.name = newWorkerDTO.getName();
+		this.dailyIncome = newWorkerDTO.getDailyIncome();
+		this.createdAt = LocalDateTime.now();
+		this.updatedAt = LocalDateTime.now();
+	}
+	
+	public Worker(UUID id, NewWorkerDTO newWorkerDTO, LocalDateTime createdAt) {
+		this.id = id;
+		this.name = newWorkerDTO.getName();
+		this.dailyIncome = newWorkerDTO.getDailyIncome();
+		this.createdAt = createdAt;
+		this.updatedAt = LocalDateTime.now();
+	}
 	
 	public Worker(UUID id, String name, Double dailyIncome, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.id = id;
