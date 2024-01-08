@@ -31,7 +31,7 @@ public class WorkerController {
 		return ResponseEntity.ok().body(this.service.findAll());
 	}
 	
-	@GetMapping("/{userId }")
+	@GetMapping("/{userId}")
 	public ResponseEntity<Worker> findById(@PathVariable(name="userId") UUID id) {
 		return ResponseEntity.ok().body(this.service.findById(id));
 	}
