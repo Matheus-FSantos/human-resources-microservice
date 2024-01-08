@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import io.github.matheusfsantos.hrworker.model.entities.Worker;
 import io.github.matheusfsantos.hrworker.model.repositories.WorkerRepository;
 import io.github.matheusfsantos.hrworker.model.service.HrWorkersService;
 
+@Service
 public class WorkerServiceImpl implements HrWorkersService<Worker> {
 
 	@Autowired
