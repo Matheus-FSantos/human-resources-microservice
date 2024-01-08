@@ -1,4 +1,4 @@
-package io.github.matheusfsantos.hrworker.model.service;
+package io.github.matheusfsantos.hrworker.model.services;
 
 import java.util.List;
 import java.util.UUID;

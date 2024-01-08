@@ -1,4 +1,4 @@
-package io.github.matheusfsantos.hrworker.model.service.impl;
+package io.github.matheusfsantos.hrworker.model.services.impl;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import io.github.matheusfsantos.hrworker.model.entities.Worker;
 import io.github.matheusfsantos.hrworker.model.repositories.WorkerRepository;
-import io.github.matheusfsantos.hrworker.model.service.HrWorkersService;
+import io.github.matheusfsantos.hrworker.model.services.HrWorkersService;
 
 @Service
 public class WorkerServiceImpl implements HrWorkersService<Worker> {

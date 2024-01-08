@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.matheusfsantos.hrworker.model.entities.Worker;
-import io.github.matheusfsantos.hrworker.model.service.impl.WorkerServiceImpl;
+import io.github.matheusfsantos.hrworker.model.services.impl.WorkerServiceImpl;
 
 @RestController
 @RequestMapping(value="/api/workers")
