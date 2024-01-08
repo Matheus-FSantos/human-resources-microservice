@@ -26,6 +26,8 @@ public class WorkerServiceImpl implements HrWorkersService<Worker> {
 
 	@Override
 	public void create(Worker dtoClass) {
+		dtoClass.updateCreatedAt();
+		dtoClass.updateUpdatedAt();
 		this.repository.save(dtoClass);
 	}
 
