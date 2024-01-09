@@ -50,12 +50,12 @@
 		</dependency>
 
 
-		<!-- OAuth -->
+		<!-- OAuth 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
-		
+		-->
 		
 		<!-- JAXB -->
 		<dependency>
