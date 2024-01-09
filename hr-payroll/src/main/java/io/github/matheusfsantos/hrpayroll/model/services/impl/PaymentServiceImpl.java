@@ -1,8 +1,10 @@
 package io.github.matheusfsantos.hrpayroll.model.services.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,8 +23,11 @@ public class PaymentServiceImpl implements PaymentService<Payment> {
 	
 	@Override
 	public Payment getPayment(Long workerId, Integer days) {
-		ResponseEntity<WorkerDTO> response = this.restTemplate.getForEntity(this.HR_WORKER_HOST.concat("/api/workers/" + workerId), WorkerDTO.class);
-		return new Payment(response.getBody().getName(), response.getBody().getDailyIncome(), days);
+		Map<String, String> uriParams = new HashMap<String, String>();
+		uriParams.put("workerId", workerId + "");
+		
+		WorkerDTO worker = this.restTemplate.getForObject(this.HR_WORKER_HOST.concat("/api/workers/{workerId}"), WorkerDTO.class, uriParams);
+		return new Payment(worker.getName(), worker.getDailyIncome(), days);
 	}
 	
 }
