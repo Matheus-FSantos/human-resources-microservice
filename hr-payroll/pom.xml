@@ -48,14 +48,13 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
         
-        <!-- Eureka Client
+        <!-- Eureka Client -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>
                 spring-cloud-starter-netflix-eureka-client
             </artifactId>
         </dependency>
-         -->
 		
 		<!-- Hystrix -->
         <dependency>
