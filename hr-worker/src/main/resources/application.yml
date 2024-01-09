@@ -5,7 +5,7 @@ spring:
   application:
     name: hr-worker
   datasource:
-    url: jdbc:mysql://localhost:3306/hrWorker?useTimezone=true&serverTimezone=America/Sao_Paulo
+    url: jdbc:mysql://localhost:3306/hrWorker?useTimezone=true
     username: root
     password: d94ed3838
     driverClassName: com.mysql.jdbc.Driver

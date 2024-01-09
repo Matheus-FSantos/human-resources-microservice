@@ -1,7 +1,6 @@
 package io.github.matheusfsantos.hrworker.controllers;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +31,7 @@ public class WorkerController {
 	}
 	
 	@GetMapping("/{userId}")
-	public ResponseEntity<Worker> findById(@PathVariable(name="userId") UUID id) {
+	public ResponseEntity<Worker> findById(@PathVariable(name="userId") Long id) {
 		return ResponseEntity.ok().body(this.service.findById(id));
 	}
 	
@@ -43,13 +42,13 @@ public class WorkerController {
 	}
 	
 	@PutMapping("/{userId}")
-	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="userId") UUID id) {
+	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="userId") Long id) {
 		this.service.update(updatedWorker, id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
 	@DeleteMapping("/{userId}")
-	public ResponseEntity<Void> delete(@PathVariable(name="userId") UUID id) {
+	public ResponseEntity<Void> delete(@PathVariable(name="userId") Long id) {
 		this.service.delete(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}

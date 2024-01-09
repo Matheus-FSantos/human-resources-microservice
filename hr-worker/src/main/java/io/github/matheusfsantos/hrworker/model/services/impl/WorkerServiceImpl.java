@@ -1,7 +1,6 @@
 package io.github.matheusfsantos.hrworker.model.services.impl;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,15 +22,8 @@ public class WorkerServiceImpl implements HrWorkersService<NewWorkerDTO, Worker>
 	}
 
 	@Override
-	public Worker findById(UUID id) {
-		List<Worker> workers = this.findAll();
-		
-		for(Worker worker : workers) {
-			if(worker.getId().equals(id))
-				return worker;
-		}
-		
-		return null;
+	public Worker findById(Long id) {
+		return this.repository.findById(id).orElse(null);
 	}
 
 	@Override
@@ -41,7 +33,7 @@ public class WorkerServiceImpl implements HrWorkersService<NewWorkerDTO, Worker>
 	}
 
 	@Override
-	public void update(NewWorkerDTO dtoClass, UUID id) {
+	public void update(NewWorkerDTO dtoClass, Long id) {		
 		if(this.repository.existsById(id)) {
 			Worker oldWorker = this.findById(id);
 			Worker updatedWorker = new Worker(oldWorker.getId(), dtoClass, oldWorker.getCreatedAt());
@@ -50,7 +42,7 @@ public class WorkerServiceImpl implements HrWorkersService<NewWorkerDTO, Worker>
 	}
 
 	@Override
-	public void delete(UUID id) {
+	public void delete(Long id) {
 		if(this.repository.existsById(id))
 			this.repository.deleteById(id);
 	}

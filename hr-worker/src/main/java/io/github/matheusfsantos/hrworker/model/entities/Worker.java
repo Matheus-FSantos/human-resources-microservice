@@ -3,7 +3,6 @@ package io.github.matheusfsantos.hrworker.model.entities;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
-import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,8 +20,9 @@ public class Worker implements Serializable {
 	public static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private UUID id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", updatable = false, nullable = false)
+	private Long id;
 	
 	@Column(nullable=false, length=120)
 	private String name;
@@ -45,7 +45,7 @@ public class Worker implements Serializable {
 		this.updatedAt = LocalDateTime.now();
 	}
 	
-	public Worker(UUID id, NewWorkerDTO newWorkerDTO, LocalDateTime createdAt) {
+	public Worker(Long id, NewWorkerDTO newWorkerDTO, LocalDateTime createdAt) {
 		this.id = id;
 		this.name = newWorkerDTO.getName();
 		this.dailyIncome = newWorkerDTO.getDailyIncome();
@@ -53,7 +53,7 @@ public class Worker implements Serializable {
 		this.updatedAt = LocalDateTime.now();
 	}
 	
-	public Worker(UUID id, String name, Double dailyIncome, LocalDateTime createdAt, LocalDateTime updatedAt) {
+	public Worker(Long id, String name, Double dailyIncome, LocalDateTime createdAt, LocalDateTime updatedAt) {
 		this.id = id;
 		this.name = name;
 		this.dailyIncome = dailyIncome;
@@ -86,15 +86,15 @@ public class Worker implements Serializable {
 				+ ", updatedAt=" + updatedAt + "]";
 	}
 
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void updateId(UUID id) {
+	public void updateId(Long id) {
 		this.setId(id);
 	}
 
-	private void setId(UUID id) {
+	private void setId(Long id) {
 		this.id = id;
 	}
 
