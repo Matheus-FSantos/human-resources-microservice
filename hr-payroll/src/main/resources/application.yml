@@ -8,3 +8,4 @@ spring:
 hr-worker:
   ribbon:
     listOfServers: "localhost:8001, localhost:8002"
+
