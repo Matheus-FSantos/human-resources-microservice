@@ -30,8 +30,8 @@ public class WorkerController {
 		return ResponseEntity.ok().body(this.service.findAll());
 	}
 	
-	@GetMapping("/{workerrId}")
-	public ResponseEntity<Worker> findById(@PathVariable(name="userId") Long id) {
+	@GetMapping("/{workerId}")
+	public ResponseEntity<Worker> findById(@PathVariable(name="workerId") Long id) {
 		return ResponseEntity.ok().body(this.service.findById(id));
 	}
 	
@@ -41,14 +41,14 @@ public class WorkerController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 	
-	@PutMapping("/{workerrId}")
-	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="userId") Long id) {
+	@PutMapping("/{workerId}")
+	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="workerId") Long id) {
 		this.service.update(updatedWorker, id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
-	@DeleteMapping("/{userId}")
-	public ResponseEntity<Void> delete(@PathVariable(name="userId") Long id) {
+	@DeleteMapping("/{workerId}")
+	public ResponseEntity<Void> delete(@PathVariable(name="workerId") Long id) {
 		this.service.delete(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
