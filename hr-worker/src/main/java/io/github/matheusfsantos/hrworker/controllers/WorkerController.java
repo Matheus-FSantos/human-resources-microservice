@@ -2,7 +2,10 @@ package io.github.matheusfsantos.hrworker.controllers;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,6 +26,12 @@ import io.github.matheusfsantos.hrworker.model.services.impl.WorkerServiceImpl;
 public class WorkerController {
 	
 	@Autowired
+	private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
+	
+	@Autowired
+	private Environment env;
+	
+	@Autowired
 	private WorkerServiceImpl service;
 	
 	@GetMapping
@@ -32,6 +41,7 @@ public class WorkerController {
 	
 	@GetMapping("/{workerId}")
 	public ResponseEntity<Worker> findById(@PathVariable(name="workerId") Long id) {
+		logger.info("PORT = " + this.env.getProperty("local.server.port"));
 		return ResponseEntity.ok().body(this.service.findById(id));
 	}
 	
