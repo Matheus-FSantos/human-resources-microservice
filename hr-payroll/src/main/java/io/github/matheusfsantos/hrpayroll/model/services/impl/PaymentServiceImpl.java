@@ -10,7 +10,7 @@ public class PaymentServiceImpl implements PaymentService<Payment> {
 	
 	@Override
 	public Payment getPayment(Long workerId, Integer days) {
-		return new Payment("Matheus", 19.99, 10);
+		return new Payment("Matheus", 19.99, days);
 	}
 	
 }
