@@ -27,7 +27,11 @@ public class PaymentServiceImpl implements PaymentService<Payment> {
 		uriParams.put("workerId", workerId + "");
 		
 		WorkerDTO worker = this.restTemplate.getForObject(this.HR_WORKER_HOST.concat("/api/workers/{workerId}"), WorkerDTO.class, uriParams);
-		return new Payment(worker.getName(), worker.getDailyIncome(), days);
+		
+		if(worker != null)
+			return new Payment(worker.getName(), worker.getDailyIncome(), days);
+		else
+			return null;
 	}
 	
 }
