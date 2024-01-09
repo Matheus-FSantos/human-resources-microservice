@@ -30,7 +30,7 @@ public class WorkerController {
 		return ResponseEntity.ok().body(this.service.findAll());
 	}
 	
-	@GetMapping("/{userId}")
+	@GetMapping("/{workerrId}")
 	public ResponseEntity<Worker> findById(@PathVariable(name="userId") Long id) {
 		return ResponseEntity.ok().body(this.service.findById(id));
 	}
@@ -41,7 +41,7 @@ public class WorkerController {
 		return ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 	
-	@PutMapping("/{userId}")
+	@PutMapping("/{workerrId}")
 	public ResponseEntity<Void> create (@RequestBody NewWorkerDTO updatedWorker, @PathVariable(name="userId") Long id) {
 		this.service.update(updatedWorker, id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
