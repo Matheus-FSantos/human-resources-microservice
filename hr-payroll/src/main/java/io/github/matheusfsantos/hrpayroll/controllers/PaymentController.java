@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.matheusfsantos.hrpayroll.model.entities.Payment;
+import io.github.matheusfsantos.hrpayroll.model.services.impl.PaymentServiceImpl;
 
 @RestController
 @RequestMapping("/api/payments")
