@@ -24,7 +24,14 @@ public class WorkerServiceImpl implements HrWorkersService<NewWorkerDTO, Worker>
 
 	@Override
 	public Worker findById(UUID id) {
-		return this.repository.findById(id).orElse(null);
+		List<Worker> workers = this.findAll();
+		
+		for(Worker worker : workers) {
+			if(worker.getId().equals(id))
+				return worker;
+		}
+		
+		return null;
 	}
 
 	@Override
