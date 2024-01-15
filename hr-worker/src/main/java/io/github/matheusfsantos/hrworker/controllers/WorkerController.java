@@ -31,6 +31,9 @@ public class WorkerController {
 	@Autowired
 	private static Logger logger = LoggerFactory.getLogger(WorkerController.class);
 	
+	@Value("${test.config}")
+	private String testConfig;
+	
 	@Autowired
 	private Environment env;
 	
@@ -40,6 +43,12 @@ public class WorkerController {
 	@GetMapping
 	public ResponseEntity<List<Worker>> findAll() {
 		return ResponseEntity.ok().body(this.service.findAll());
+	}
+	
+	@GetMapping("/configs")
+	public ResponseEntity<Void> findById() {
+		logger.info("PORT = " + this.testConfig);
+		return ResponseEntity.noContent().build();
 	}
 	
 	@GetMapping("/{workerId}")
