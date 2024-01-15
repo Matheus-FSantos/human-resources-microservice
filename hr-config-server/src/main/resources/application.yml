@@ -10,3 +10,5 @@ spring:
         git:
           default-label: main
           uri: https://github.com/Matheus-FSantos/human-resources-microservice-config-server
+          username: ${GITHUB_USERNAME}
+          password: ${GITHUB_PASSWORD}
