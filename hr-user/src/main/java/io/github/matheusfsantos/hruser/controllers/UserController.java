@@ -15,7 +15,7 @@ import io.github.matheusfsantos.hruser.model.entities.User;
 import io.github.matheusfsantos.hruser.model.service.impl.UserServiceImpl;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping(value="/api/users")
 public class UserController {
 
 	@Autowired
