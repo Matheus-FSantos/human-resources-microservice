@@ -2,12 +2,11 @@ package io.github.matheusfsantos.hruser.model.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import io.github.matheusfsantos.hruser.model.dtos.NewUserDTO;
 import io.github.matheusfsantos.hruser.model.entities.User;
 import io.github.matheusfsantos.hruser.model.repositories.UserRepository;
 import io.github.matheusfsantos.hruser.model.service.HrUserService;
 
-public class UserServiceImpl implements HrUserService<NewUserDTO, User> {
+public class UserServiceImpl implements HrUserService<User> {
 
 	@Autowired
 	private UserRepository repository;
