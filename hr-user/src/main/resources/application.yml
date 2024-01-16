@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: hr-worker
+    name: hr-user
   datasource:
     url: jdbc:mysql://localhost:3306/hrUsers?useTimezone=true
     username: ${MYSQL_USERNAME}
