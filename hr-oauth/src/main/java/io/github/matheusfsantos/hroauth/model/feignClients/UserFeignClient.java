@@ -13,6 +13,6 @@ import io.github.matheusfsantos.hroauth.model.entities.User;
 public interface UserFeignClient {
 
 	@GetMapping("/search")
-	public ResponseEntity<User> search(@RequestParam(name="email") String email);
+	ResponseEntity<User> search(@RequestParam(name="email") String email);
 		
 }
