@@ -26,7 +26,8 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	
 	private static final String[] ADMIN_ROUTES = {
 		"/hr-user/**",
-		"/hr-payroll/**"
+		"/hr-payroll/**",
+		"/actuator/**"
 	};
 	
 	@Override
