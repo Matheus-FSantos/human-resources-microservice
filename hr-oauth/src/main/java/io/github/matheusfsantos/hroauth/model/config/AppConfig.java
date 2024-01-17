@@ -1,5 +1,6 @@
 package io.github.matheusfsantos.hroauth.model.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -9,6 +10,9 @@ import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 @Configuration
 public class AppConfig {
 
+	@Value("${jwt.secret}")
+	public String jwtSecret;
+	
 	@Bean
 	BCryptPasswordEncoder getBCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -19,7 +23,7 @@ public class AppConfig {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
 		
 		tokenConverter.
-			setSigningKey("MY-SECRET-KEY");
+			setSigningKey(jwtSecret);
 		
 		return tokenConverter;
 	}
