@@ -19,7 +19,7 @@ public class AppConfig {
 		JwtAccessTokenConverter tokenConverter = new JwtAccessTokenConverter();
 		
 		tokenConverter.
-			setSigningKey("My-Secret-Key");
+			setSigningKey("MY-SECRET-KEY");
 		
 		return tokenConverter;
 	}
